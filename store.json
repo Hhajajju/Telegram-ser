@@ -1,0 +1,1 @@
+{"version":2,"languages":{"nodejs-npm":{"specfileHash":"9c0f454690b08cb7ae396e0b759288f0","lockfileHash":"4c526be21a558111dc5230058b37ffc0","guessedImports":["@prisma/client","express","body-parser"],"guessedImportsHash":"01d4ab96dd3c08406a225d7f6b346e50"}}}

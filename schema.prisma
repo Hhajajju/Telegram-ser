@@ -1,0 +1,29 @@
+// prisma/schema.prisma
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL") // MongoDB connection URL
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+  username       String
+  balance        Float    @default(0)
+  referralEarnings Float   @default(0)
+  referralCode   String   @unique
+    lastClaimed    DateTime @default(now())
+    createdAt      DateTime @default(now())
+    updatedAt      DateTime @updatedAt
+  }
+
+model Referral {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  referrerId  String @db.ObjectId
+  referredId  String @db.ObjectId
+  referralCode String @unique
+  earned       Float  @default(0)
+}
